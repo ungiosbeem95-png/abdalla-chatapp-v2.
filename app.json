@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "My Chat App",
-    "slug": "httpsgithubcomungiosbeem95-pngabdalla-chatapp-v2-6oetrlufns4xfct9yzbk9",
+    "slug": "abdalla-chatapp-v3-final",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -12,7 +12,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.abdalla.chatapp",
+      "package": "com.abdalla.chatappv3",
       "versionCode": 1
     },
     "extra": {
