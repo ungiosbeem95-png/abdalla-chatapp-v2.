@@ -18,7 +18,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.abdalla.chatapp.final",
+      "package": "com.abdalla.chatapp.production",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
