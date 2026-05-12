@@ -12,8 +12,9 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.abdalla.chatappv3",
-      "versionCode": 1
+      "package": "com.abdalla.chatappvfinal",
+      "versionCode": 1,
+      "backgroundColor": "#ffffff"
     },
     "extra": {
       "eas": {
