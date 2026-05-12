@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "My Chat App",
-    "slug": "abdalla-chatapp-v2",
+    "slug": "httpsgithubcomungiosbeem95-pngabdalla-chatapp-v2-6oetrlufns4xfct9yzbk9",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,14 +22,15 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.abdalla.chatapp"
+      "package": "com.abdalla.chatapp",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "5d749079-25d1-4a7c-bc81-d4cb30c6f056" 
+        "projectId": "5d749079-25d1-4a7c-bc81-d4cb30c6f056"
       }
     }
   }
