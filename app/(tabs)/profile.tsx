@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Colors } from '../constants/Colors';
+import { Colors } from '../../constants/Colors';
 
 export default function ProfileScreen() {
   const router = useRouter();
