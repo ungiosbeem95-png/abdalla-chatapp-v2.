@@ -1,49 +1,52 @@
 import React, { useState } from 'react';
-import { View, FlatList, TextInput, TouchableOpacity, Text, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Colors } from '../constants/Colors';
 
-export default function ChatScreen() {
+const MOCK_CHATS = [
+  { id: '1', name: 'X.𝑩𝒆𝒓𝒕', lastMsg: 'Sidee tahay?', time: '12:30' },
+  { id: '2', name: 'Kooxda Coding', lastMsg: 'Code-ka ma dhamaystirnay?', time: '10:15' },
+];
+
+export default function ChatListScreen() {
   const router = useRouter();
-  const [messages, setMessages] = useState([{ id: '1', text: 'Kusoo dhawaada Pro Chat!', sender: 'bot' }]);
-  const [text, setText] = useState('');
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Chats</Text>
+        <TouchableOpacity onPress={() => router.push('/profile')}>
+          <View style={styles.avatarMini}><Text style={{color: '#fff'}}>AK</Text></View>
+        </TouchableOpacity>
+      </View>
+
       <FlatList
-        data={messages}
+        data={MOCK_CHATS}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={[styles.bubble, item.sender === 'user' ? styles.user : styles.bot]}>
-            <Text style={{ color: '#fff' }}>{item.text}</Text>
+          <View style={styles.chatItem}>
+            <View style={styles.avatarSmall} />
+            <View style={styles.chatInfo}>
+              <Text style={styles.chatName}>{item.name}</Text>
+              <Text style={styles.chatMsg}>{item.lastMsg}</Text>
+            </View>
+            <Text style={styles.chatTime}>{item.time}</Text>
           </View>
         )}
-        keyExtractor={item => item.id}
-        inverted
       />
-      
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <View style={styles.inputArea}>
-          <TextInput 
-            style={styles.input} 
-            value={text} 
-            onChangeText={setText} 
-            placeholder="Qor fariin..." 
-            placeholderTextColor="#999"
-          />
-          <TouchableOpacity onPress={() => router.push('/profile')} style={styles.profileBtn}>
-            <Text style={{color: '#fff'}}>👤</Text>
-          </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#0f172a' },
-  bubble: { padding: 12, margin: 10, borderRadius: 15, maxWidth: '80%' },
-  user: { alignSelf: 'flex-end', backgroundColor: '#2563eb' },
-  bot: { alignSelf: 'flex-start', backgroundColor: '#1e293b' },
-  inputArea: { flexDirection: 'row', padding: 15, backgroundColor: '#1e293b' },
-  input: { flex: 1, color: '#fff', backgroundColor: '#0f172a', borderRadius: 20, paddingHorizontal: 15 },
-  profileBtn: { marginLeft: 10, justifyContent: 'center' }
+  container: { flex: 1, backgroundColor: Colors.background },
+  header: { flexDirection: 'row', justifyContent: 'space-between', padding: 20, alignItems: 'center' },
+  title: { color: Colors.text, fontSize: 32, fontWeight: 'bold' },
+  avatarMini: { width: 40, height: 40, borderRadius: 20, backgroundColor: Colors.primary, justifyContent: 'center', alignItems: 'center' },
+  chatItem: { flexDirection: 'row', padding: 15, alignItems: 'center', borderBottomWidth: 1, borderBottomColor: '#1e293b' },
+  avatarSmall: { width: 50, height: 50, borderRadius: 25, backgroundColor: Colors.subtext },
+  chatInfo: { marginLeft: 15, flex: 1 },
+  chatName: { color: Colors.text, fontWeight: 'bold', fontSize: 16 },
+  chatMsg: { color: Colors.subtext },
+  chatTime: { color: Colors.subtext, fontSize: 12 },
 });
