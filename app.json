@@ -4,7 +4,13 @@
     "slug": "httpsgithubcomungiosbeem95-pngabdalla-chatapp-v2-6oetrlufns4xfct9yzbk9",
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -12,9 +18,12 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.abdalla.chatappvfinal",
+      "package": "com.abdalla.chatapp.final",
       "versionCode": 1,
-      "backgroundColor": "#ffffff"
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
     },
     "extra": {
       "eas": {
