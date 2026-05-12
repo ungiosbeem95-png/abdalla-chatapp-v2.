@@ -3,6 +3,8 @@ import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, Platform } fro
 import { useRouter } from 'expo-router';
 import { Colors } from '../../constants/Colors';
 import { CustomButton } from '../../components/CustomButton';
+// 1. Halkan ka soo jiid (Import) Socket service-ka
+import { connectSocket } from '../../services/socket.service';
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -10,6 +12,9 @@ export default function LoginScreen() {
 
   const handleLogin = () => {
     if (username.length > 2) {
+      // 2. Halkan ku kici xiriirka Socket-ka markuu soo galo
+      connectSocket(username); 
+      
       router.replace('/');
     } else {
       alert("Fadlan qor magac sax ah!");
@@ -33,7 +38,6 @@ export default function LoginScreen() {
           onChangeText={setUsername}
         />
 
-        {/* Halkan waxaan ku isticmaalaynaa Component-ka cusub */}
         <CustomButton title="Soo gal" onPress={handleLogin} />
       </View>
     </KeyboardAvoidingView>
