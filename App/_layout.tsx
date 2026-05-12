@@ -7,9 +7,12 @@ export default function RootLayout() {
         headerStyle: { backgroundColor: '#0f172a' },
         headerTintColor: '#fff',
         headerTitleStyle: { fontWeight: 'bold' },
+        headerShown: false, // Waxaan ka saarnay header-ka si uu app-ku u noqdo mid casri ah
       }}
     >
-      <Stack.Screen name="index" options={{ title: '亗 X.𝑩𝒆𝒓𝒕 亗' }} />
+      {/* Bogga Login-ka ayaa ugu horreyn doona */}
+      <Stack.Screen name="(auth)/login" options={{ title: 'Soo Gal' }} />
+      <Stack.Screen name="index" options={{ title: 'Chat' }} />
       <Stack.Screen name="profile" options={{ title: 'Profile' }} />
     </Stack>
   );
